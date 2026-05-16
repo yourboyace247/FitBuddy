@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+  --color-cyan-950: #083344;
+  
+  --gradient-cyan-light: linear-gradient(135deg, #ecfeff 0%, #f0f9ff 100%);
+  --gradient-cyan-dark: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+}
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-cyan-50 to-cyan-100 text-gray-800;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-cyan-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-2 px-6 rounded-lg 
+           transition-all duration-300 ease-in-out transform hover:scale-105 
+           focus:outline-none focus:ring-2 focus:ring-cyan-500/75;
+  }
+  
+  .btn-secondary {
+    @apply bg-cyan-100 hover:bg-cyan-200 text-cyan-700 font-medium py-2 px-6 rounded-lg 
+           transition-all duration-300 ease-in-out border border-cyan-300 
+           hover:border-cyan-400;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-cyan-100 
+           hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  .card-gradient {
+    @apply bg-gradient-to-br from-cyan-50 to-white rounded-xl shadow-lg p-6 
+           border border-cyan-100;
+  }
+  
+  .nav-link {
+    @apply text-cyan-700 hover:text-cyan-500 transition-colors duration-200 
+           font-medium px-4 py-2 rounded-lg hover:bg-cyan-50;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-6 text-cyan-800 
+           border-b-2 border-cyan-200 pb-3;
+  }
+  
+  .badge {
+    @apply inline-block bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full 
+           text-sm font-medium;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-cyan-700;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  @apply bg-cyan-200 text-cyan-900;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-cyan-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-cyan-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-cyan-400;
+}
